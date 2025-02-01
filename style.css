@@ -12,19 +12,90 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-family: Roboto, Arial, sans-serif;
+  backdrop-filter: blur(2px);
+  color: white;
 }
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.322);
+}
+.card,
+.tooltip,
+[class^="svg"],
+.tooltip-link {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .card {
   width: 400px;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.8);
   display: flex;
+  align-items: center;
+  position: relative;
+}
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  width: 250px;
+  left: -275px;
+  bottom: 0;
+  visibility: hidden;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  box-shadow: inset 0 0 10px rgba(200, 200, 200, 0.2);
+  opacity: 0;
+  transition: 0.3s opacity ease;
+}
+.img:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.3s opacity ease;
+}
+.link {
+  pointer-events: auto;
+  cursor: default;
+}
+.container-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+[class^="svg"] {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  margin: 0px 5px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transition: 0.3s background-color ease, 0.3s rotate ease;
+  rotate: 360deg;
+}
+.tooltip-link {
+  position: absolute;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 0.6em;
+  bottom: -25px;
+  white-space: nowrap;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s opacity ease;
+  rotate: 0deg;
+}
+[class^="svg"]:hover .tooltip-link {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.3s opacity ease;
+}
+[class^="svg"]:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  rotate: 0deg;
 }
