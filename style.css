@@ -20,6 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  position: relative;
 }
 .card,
 .tooltip,
@@ -88,14 +89,15 @@ body {
   visibility: hidden;
   opacity: 0;
   transition: 0.3s opacity ease;
-  rotate: 0deg;
 }
 [class^="svg"]:hover .tooltip-link {
   visibility: visible;
   opacity: 1;
-  transition: 0.3s opacity ease;
 }
-[class^="svg"]:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+[class^="svg"]:hover .rotate {
   rotate: 0deg;
+}
+.rotate {
+  transition: 0.25s rotate cubic-bezier(0.58, 0.29, 0.21, 0.54);
+  rotate: 360deg;
 }
